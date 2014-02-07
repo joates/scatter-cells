@@ -2,6 +2,8 @@
 
 A particle system in Three.js (WebGL experiment)
 
+Here is the live [demo](http://joat.es/webgl/scatter-cells)
+
 screenshot:
 ![running demo looks like this](https://raw.github.com/joates/scatter-cells/master/img/screenshot.jpg)
 

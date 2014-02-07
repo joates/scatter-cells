@@ -23,21 +23,19 @@ function ParticleSystem(radius) {
   ps.updateCells = function() {
     var particles = this.children
       , repelForce = new THREE.Vector3(0,0,0)
-      , mag
-      , repelStrength
       , numAgitatedParticles = 0
-      , edgeDistance
+      , repelStrength, mag
 
     if (!this.equilibrium) {
       for (i=0; i<particles.length; i++) {
         var p1 = particles[i]
 
-  			edgeDistance = this.radialConst + this.radialAdjust
+  			this.radius = this.radialConst + this.radialAdjust
 
         repelForce.copy(p1.position)
 
         mag = repelForce.length()
-        repelStrength = (mag - edgeDistance) *-0.1
+        repelStrength = (mag - this.radius) *-0.1
 
         if (repelStrength < 0) {
           repelForce.multiplyScalar(repelStrength/mag)

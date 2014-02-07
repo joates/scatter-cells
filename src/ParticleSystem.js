@@ -5,12 +5,12 @@ function ParticleSystem(radius) {
   // Particle system.
   var ps = new THREE.Object3D()
 
-  ps.radius = radius || 600
+  ps.radius = radius || 512
   ps.equilibrium = false
 
-	ps.agitationHistory = [],
+  ps.agitationHistory = []
 
-  // add physics properties.
+  // additional properties.
   ps.minAgitation = 0
   ps.agitationThreshold = 85
   ps.agitationHistoryMax = 20  // Approx. 333 milliseconds at 60fps.
@@ -75,9 +75,7 @@ function ParticleSystem(radius) {
         if (p1.force.length() > 0.002) numAgitatedParticles++
       }
 
-      if (numAgitatedParticles < this.agitationThreshold && anyParticlesTouching) {
-        numAgitatedParticles = this.agitationThreshold
-      }
+      if (anyParticlesTouching) numAgitatedParticles = this.agitationThreshold
     }
 
     return numAgitatedParticles
@@ -104,7 +102,6 @@ function ParticleSystem(radius) {
       this.agitationHistory.shift()
     }
 
-    //return ((this.repelForceModifierConst + this.repelForceModifierAdjust) < this.repelForceModifierConst)
     return (this.repelForceModifierAdjust < 0)
   }.bind(ps)
 

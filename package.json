@@ -1,0 +1,25 @@
+{
+  "name": "scatter-cells",
+  "version": "0.0.1",
+  "description": "A particle system in Three.js (WebGL experiment)",
+  "dependencies": {
+    "domready": "0.2.x",
+    "raf": "0.0.3"
+  },
+  "devDependencies": {
+    "watchify": "~0.5.6"
+  },
+  "scripts": {
+    "watch": "watchify src/index.js -o public/main.js &",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/joates/scatter-cells.git"
+  },
+  "bugs": {
+    "url": "https://github.com/joates/scatter-cells/issues"
+  },
+  "author": "joates",
+  "license": "MIT"
+}
